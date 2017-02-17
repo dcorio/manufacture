@@ -1,5 +1,31 @@
 <?xml version="1.0"?>
 <odoo>
+
+	<record id="mrp_bom_property_form_view" model="ir.ui.view">
+        <field name="name">mrp.bom.property.form</field>
+        <field name="model">mrp.bom.property</field>
+        <field name="arch" type="xml">
+        	<form string="BoM Property">
+        		<group>
+					<field name="name"/>
+					<field name="group_id"/>
+					<field name="description"/>
+				</group>
+			</form>
+        </field>
+    </record>
+
+	<record id="mrp_bom_property_tree_view" model="ir.ui.view">
+        <field name="name">mrp.bom.property.tree</field>
+        <field name="model">mrp.bom.property</field>
+        <field name="arch" type="xml">
+        	<tree string="BoM Properties">
+				<field name="name"/>
+				<field name="description"/>
+			</tree>
+        </field>
+    </record>
+
 	<record id="mrp_bom_form_view_properties" model="ir.ui.view">
         <field name="name">mrp.bom.form.properties</field>
         <field name="model">mrp.bom</field>
@@ -7,7 +33,11 @@
         <field name="arch" type="xml">
             <field name="type" position="after">
 				<field name="property_ids" widget="many2many_tags"/>
-			</xpath> 
+			</field>
+			<field name="operation_id" position="after">
+				<field name="property_ids" widget="many2many_tags"/>
+			</field>  
         </field>
     </record>
+
 </odoo>
