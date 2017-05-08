@@ -40,4 +40,15 @@
         </field>
     </record>
 
+    <record id="act_mrp_bom_properties" model="ir.actions.act_window">
+        <field name="name">MRP BoM Properties</field>
+        <field name="res_model">mrp.bom.properties</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_mrp_bom_properties"
+            name="MRP BoM Properties"
+            parent="menu_mrp_root"
+            sequence="100"/>
+
 </odoo>
