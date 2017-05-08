@@ -27,7 +27,7 @@
     </record>
 
 	<record id="mrp_bom_form_view_properties" model="ir.ui.view">
-        <field name="name">mrp.bom.form.properties</field>
+        <field name="name">mrp.bom.form.property</field>
         <field name="model">mrp.bom</field>
         <field name="inherit_id" ref="mrp.mrp_bom_form_view"/>    
         <field name="arch" type="xml">
@@ -42,7 +42,7 @@
 
     <record id="act_mrp_bom_properties" model="ir.actions.act_window">
         <field name="name">MRP BoM Properties</field>
-        <field name="res_model">mrp.bom.properties</field>
+        <field name="res_model">mrp.bom.property</field>
         <field name="view_mode">tree,form</field>
     </record>
 
