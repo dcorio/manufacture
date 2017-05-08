@@ -14,6 +14,7 @@
         'mrp',
     ],
     'data': [
+        'security/ir.model.access.csv',
         'views/mrp_bom_view.xml',
         'views/sale_order_view.xml'
     ],

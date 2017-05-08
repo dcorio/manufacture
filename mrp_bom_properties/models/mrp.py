@@ -78,3 +78,28 @@ class MrpBomLine(models.Model):
     _inherit = 'mrp.bom.line'
 
     property_ids = fields.Many2many('mrp.bom.property', string='Properties')
+
+
+class MrpProduction(models.Model):
+    _inherit = 'mrp.production'
+
+    def _get_properties(self, bom_line):
+        so_model = self.env['sale.order']
+        if self.procurement_group_id:
+            so_name = self.procurement_group_id.name
+            so = so_model.search([('name', '=', so_name)])
+            if so:
+                for line in so.order_line:
+                    if line.product_id == self.product_id:
+                        if bom_line.property_ids not in line.property_ids:
+                            return True
+        return False
+
+    def _generate_raw_moves(self, exploded_lines):
+        self.ensure_one()
+        moves = self.env['stock.move']
+        for bom_line, line_data in exploded_lines:
+            properties_check = self._get_properties(bom_line)
+            if properties_check:
+                moves += self._generate_raw_move(bom_line, line_data)
+                return moves
