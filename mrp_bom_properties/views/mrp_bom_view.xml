@@ -48,7 +48,7 @@
 
     <menuitem id="menu_mrp_bom_properties"
             name="MRP BoM Properties"
-            parent="menu_mrp_root"
+            parent="mrp.menu_mrp_root"
             sequence="100"/>
 
 </odoo>
