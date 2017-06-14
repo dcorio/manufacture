@@ -48,6 +48,7 @@
 
     <menuitem id="menu_mrp_bom_properties"
             name="MRP BoM Properties"
+            action="act_mrp_bom_properties"
             parent="mrp.menu_mrp_configuration"
             sequence="100"/>
 

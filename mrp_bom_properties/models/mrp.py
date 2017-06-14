@@ -91,7 +91,7 @@ class MrpProduction(models.Model):
             if so:
                 for line in so.order_line:
                     if line.product_id == self.product_id:
-                        if bom_line.property_ids not in line.property_ids:
+                        if (bom_line.property_ids in line.property_ids or not   bom_line.property_ids):
                             return True
         return False
 
@@ -102,4 +102,4 @@ class MrpProduction(models.Model):
             properties_check = self._get_properties(bom_line)
             if properties_check:
                 moves += self._generate_raw_move(bom_line, line_data)
-                return moves
+        return moves
